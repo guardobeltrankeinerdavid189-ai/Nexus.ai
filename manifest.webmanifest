@@ -1,0 +1,9 @@
+{
+  "name": "NEXUS AI",
+  "short_name": "NEXUS",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#090d18",
+  "theme_color": "#090d18",
+  "description": "Asistente creativo y de programación"
+}

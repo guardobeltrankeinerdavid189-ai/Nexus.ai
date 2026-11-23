@@ -29,7 +29,7 @@ Necesitas un hosting que ejecute Node.js (no basta hosting estático).
 3. Crea un servicio web Node en tu hosting desde ese repositorio.
 4. Build command: npm install && npm run build
 5. Start command: npm start
-6. Variables de entorno: OPENAI_API_KEY, OPENAI_MODEL, OPENAI_IMAGE_MODEL.
+6. Variables de entorno: GEMINI_API_KEY, GEMINI_MODEL y GEMINI_IMAGE_MODEL (opcional).
 7. Abre la URL HTTPS del servicio.
 
 API KEY
@@ -44,3 +44,13 @@ LIMITACIONES Y SEGURIDAD — PROTOTIPO
 - El historial se guarda localmente en el navegador, no se sincroniza entre dispositivos.
 - Análisis de PDF/documentos, voz conversacional completa, memoria de largo plazo y búsqueda web real requieren integraciones adicionales.
 - La app puede instalarse como PWA. APK requiere Android Studio/compilación en PC.
+
+
+CONFIGURAR GOOGLE GEMINI
+1. En Render, abre tu Web Service y entra en Environment.
+2. Añade GEMINI_API_KEY con la clave de Google AI Studio como valor secreto.
+3. Opcional: añade GEMINI_MODEL=gemini-2.5-flash.
+4. Opcional para imágenes: GEMINI_IMAGE_MODEL=gemini-2.5-flash-image. La generación de imágenes depende de la disponibilidad del modelo y de la cuota de tu proyecto.
+5. Guarda y despliega de nuevo. Nunca pongas la clave en app.js, index.html ni GitHub.
+
+Esta versión usa Gemini para chat, programación, análisis de enlaces públicos y análisis visual. Los pagos de los planes siguen siendo demostrativos; no se realizan cobros reales. Los tokens internos de NEXUS no son créditos de Google.

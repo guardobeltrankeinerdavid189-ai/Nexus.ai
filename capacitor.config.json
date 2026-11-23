@@ -1,0 +1,6 @@
+{
+  "appId": "com.nexusai.app",
+  "appName": "NEXUS AI",
+  "webDir": "dist",
+  "bundledWebRuntime": false
+}
