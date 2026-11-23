@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#090d18"><meta name="description" content="NEXUS AI - tu asistente creativo y de programación">
+<link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="styles.css">
+<title>NEXUS AI</title>
+</head>
+<body>
+<div id="authScreen" class="auth-screen"><div class="auth-card"><div class="logo auth-logo">N</div><p class="eyebrow">TU ESTUDIO DE IA</p><h1>Bienvenido a <em>NEXUS</em></h1><p class="muted">Crea un perfil local para probar tu espacio de trabajo.</p><label>Tu nombre</label><input id="profileName" maxlength="24" placeholder="¿Cómo te llamamos?"><button class="primary wide" id="enterApp">Entrar y recibir 900 tokens</button><small>Prototipo: el perfil y los tokens se guardan en este navegador, no es una cuenta segura en la nube.</small></div></div>
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand"><div class="logo">N</div><div><b>NEXUS</b><small>AI STUDIO</small></div></div>
+    <button class="newchat" id="newChat">＋ Nuevo chat</button>
+    <div class="navlabel">ESPACIO DE TRABAJO</div>
+    <button class="nav active" data-view="chat">◉ <span>Asistente</span></button>
+    <button class="nav" data-view="code">⌘ <span>Programación</span></button>
+    <button class="nav" data-view="image">▧ <span>Crear imágenes</span></button>
+    <button class="nav" data-view="files">▤ <span>Archivos y proyectos</span></button>
+    <button class="nav" data-view="links">↗ <span>Link Access</span></button>
+    <button class="nav" data-view="plans">✦ <span>Planes Premium</span></button>\n    <button class="nav" data-view="history">◷ <span>Historial y memoria</span></button>
+    <div class="sidebar-bottom"><div class="status"><i></i> Prototipo local activo</div><small> NEXUS AI · versión 4.0</small></div>
+  </aside>
+  <main class="main">
+    <header><button class="mobile-menu" id="menu">☰</button><div class="crumb">NEXUS AI <span>/</span> <b id="viewName">Asistente</b></div><div class="header-right"><span class="token-pill" id="tokenBalance">◈ 900 tokens</span><span class="pill">✦ NEXUS 4.0</span><div class="avatar" id="userAvatar">U</div></div></header>
+    <section class="view active" id="chatView">
+      <div class="welcome" id="welcome"><div class="orb">✦</div><p class="eyebrow">TU ESPACIO DE CREACIÓN</p><h1>¿Qué vamos a crear<br><em>hoy?</em></h1><p class="muted">Pregunta, programa, imagina y construye con NEXUS.</p>
+      <div class="quick-grid">
+        <button class="quick" data-prompt="Crea un videojuego sencillo en HTML"><b>⌘ Programar</b><small>Crea un videojuego o una web</small></button>
+        <button class="quick" data-prompt="Dame una idea detallada para una imagen futurista"><b>▧ Crear una imagen</b><small>Convierte ideas en prompts visuales</small></button>
+        <button class="quick" data-prompt="Explícame cómo funciona la inteligencia artificial"><b>✧ Aprender</b><small>Explicaciones paso a paso</small></button>
+        <button class="quick" data-prompt="Ayúdame a organizar un proyecto"><b>▤ Organizar proyecto</b><small>Planifica y divide tareas</small></button>
+      </div></div>
+      <div class="messages" id="messages" aria-live="polite"></div>
+      <form class="composer" id="chatForm"><div class="composer-tools"><select id="aiMode" aria-label="Modo de IA"><option value="chat">Chat · 5 tokens</option><option value="code">Code Pro · 20 tokens</option><option value="image">Imágenes · 60 tokens</option><option value="web">Buscar web · 10 tokens</option></select><label class="attach-btn" for="fileInput">＋ Archivo</label><input id="fileInput" type="file" accept="image/*,.pdf,.txt,.md,.js,.py,.html,.css" hidden><button type="button" class="voice-btn" id="voiceBtn" title="Dictar">🎙</button></div>
+      <textarea id="chatInput" rows="1" placeholder="Escribe tu mensaje a NEXUS..." required></textarea><div class="compose-bottom"><span id="connectionStatus">IA lista para conectar · saldo inicial 900</span><button class="send" type="submit">➤</button></div></form>
+    </section>
+    <section class="view tool-view" id="codeView"><div class="tool-heading"><p class="eyebrow">LABORATORIO DE CÓDIGO</p><h1>Programación <em>inteligente</em></h1><p class="muted">Escribe una idea y genera una plantilla editable para empezar.</p></div>
+      <div class="panel"><label for="codeIdea">¿Qué quieres programar?</label><textarea id="codeIdea" placeholder="Ej.: una página web de un juego de carreras..."></textarea><div class="actions"><select id="codeLang"><option>HTML</option><option>JavaScript</option><option>Python</option><option>CSS</option></select><button class="primary" id="generateCode">Generar código</button></div></div>
+      <div class="editor-wrap"><div class="editor-top"><span>◉ editor.js</span><button id="copyCode">Copiar código</button></div><textarea id="codeOutput" spellcheck="false" aria-label="Editor de código">// Tu código aparecerá aquí.\n// Describe tu proyecto y pulsa “Generar código”.</textarea></div>
+    </section>
+    <section class="view tool-view" id="imageView"><div class="tool-heading"><p class="eyebrow">ESTUDIO CREATIVO</p><h1>Imagina. <em>Diseña.</em></h1><p class="muted">Prepara descripciones detalladas para un generador de imágenes.</p></div>
+      <div class="panel"><label for="imageIdea">Describe la imagen que imaginas</label><textarea id="imageIdea" placeholder="Ej.: un robot explorador en una ciudad futurista bajo la lluvia..."></textarea><div class="actions"><select id="imageStyle"><option>Arte cinematográfico</option><option>Realista</option><option>Anime</option><option>Pixel art</option><option>3D para videojuegos</option><option>Ilustración</option></select><button class="primary" id="makePrompt">Crear prompt</button></div></div>
+      <div class="preview" id="imageResult"><div class="preview-icon">▧</div><b>Tu concepto aparecerá aquí</b><p class="muted">Esta versión prepara prompts; no genera imágenes reales.</p></div>
+    </section>
+    <section class="view tool-view" id="linksView"><div class="tool-heading"><p class="eyebrow">NEXUS LINK ACCESS</p><h1>Analiza cualquier <em>enlace</em></h1><p class="muted">Pega una URL pública para detectar su contenido, extraer texto y obtener un resumen con IA.</p></div>
+      <div class="panel"><label for="linkInput">Enlace de una página pública</label><input id="linkInput" type="url" placeholder="https://ejemplo.com/articulo" autocomplete="url"><div class="actions"><button class="primary" id="analyzeLink">Analizar enlace · 10 tokens</button></div><p class="muted small-note">Compatible con páginas públicas HTML y texto. Sitios que requieren sesión, bloquean bots o muestran contenido solo dentro de una app pueden no funcionar.</p></div>
+      <div class="panel" id="linkResult"><h3>Resultado del análisis</h3><p class="muted">Aquí aparecerá la información encontrada.</p></div>
+      <div class="panel"><h3>Abrir en su plataforma</h3><p class="muted">Puedes abrir el enlace original en el navegador o en la aplicación compatible instalada en tu dispositivo.</p><button class="plan-btn" id="openOriginal" disabled>Abrir enlace original</button></div>
+    </section>
+    <section class="view tool-view" id="filesView"><div class="tool-heading"><p class="eyebrow">CENTRO DE PROYECTOS</p><h1>Tus <em>proyectos</em></h1><p class="muted">Guarda notas y consulta las herramientas disponibles.</p></div><div class="panel"><h3>Espacio local</h3><p class="muted">Este prototipo no envía tus datos a un servidor. Tus chats se conservan en esta sesión del navegador.</p><button class="primary" id="exportChat">Exportar conversación (.txt)</button></div><div class="panel"><h3>Próximas integraciones</h3><ul><li>Modelo de lenguaje mediante API segura</li><li>Generación real de imágenes</li><li>Subida y análisis de documentos</li><li>Sincronización entre dispositivos y cuentas</li></ul></div></section>
+    <footer>Hecho para crear · NEXUS AI <span>Las respuestas de esta demo no son una IA conectada.</span></footer>
+  </main>
+</div>
+<script src="app.js"></script>
+</body></html>
